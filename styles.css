@@ -1,40 +1,194 @@
+/* ===== RESET ===== */
+
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ===== BODY ===== */
+
 body {
-    font-family: Arial, sans-serif;
-    background: white;
-    color: black;
-    line-height: 1.7;
-    font-size: 1.1rem;
-    padding: 20px;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("fondo.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: "Courier New", monospace;
+
+    position: relative;
+
+    user-select: none;
+
+    -webkit-user-select: none;
 }
 
-.contenedor {
-    max-width: 800px;
-    margin: auto;
+/* ===== OSCURECER ===== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    z-index: 0;
 }
 
-h1 {
+/* ===== TITULO ===== */
+
+.titulo {
+
+    position: fixed;
+
+    top: 20px;
+
+    width: 100%;
+
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
+
+    z-index: 10;
+
+    color: #d10000;
+
+    font-size: 3rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.12em;
+
+    text-shadow:
+        0 0 12px rgba(255,0,0,0.5),
+        0 0 24px rgba(255,0,0,0.25);
 }
 
-p {
-    margin-bottom: 20px;
+/* ===== HOJA ===== */
+
+.hoja {
+
+    position: relative;
+
+    width: 92vw;
+
+    max-width: 900px;
+
+    height: 88vh;
+
+    background-image: url("textos.png");
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
 }
 
-/* Ajuste para celulares */
+/* ===== MARCA ===== */
+
+.marca {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image: url("marca.png");
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: 50%;
+
+    opacity: 0.05;
+}
+
+/* ===== TEXTO ===== */
+
+.texto {
+
+    width: 72%;
+
+    height: 68%;
+
+    overflow-y: auto;
+
+    color: #111;
+
+    z-index: 3;
+
+    padding-right: 10px;
+}
+
+/* ===== PRE ===== */
+
+pre {
+
+    white-space: pre-wrap;
+
+    line-height: 1.9;
+
+    font-size: 1.05rem;
+
+    font-family: "Courier New", monospace;
+}
+
+/* ===== SCROLL ===== */
+
+.texto::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+.texto::-webkit-scrollbar-thumb {
+
+    background: rgba(0,0,0,0.2);
+}
+
+/* ===== CELULARES ===== */
+
 @media (max-width: 768px) {
-    body {
-        font-size: 1rem;
+
+    .titulo {
+
+        font-size: 2rem;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    .hoja {
+
+        width: 98vw;
+
+        height: 92vh;
+    }
+
+    .texto {
+
+        width: 80%;
+
+        height: 72%;
+    }
+
+    pre {
+
+        font-size: 0.95rem;
+
+        line-height: 1.7;
     }
 }
